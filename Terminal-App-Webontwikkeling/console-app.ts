@@ -9,30 +9,41 @@ function readJSONFile(filename: string): any {
 function displayData(data: Pokemon[]): void {
   console.log('- All Pokemon Data -');
   data.forEach((pokemon: Pokemon) => {
-    console.log(`- ${pokemon.name} (${pokemon.id})`);
-    console.log(`  - Description: ${pokemon.description}`);
-    console.log(`  - HP: ${pokemon.hp}`);
-    console.log(`  - Active: ${pokemon.isActive}`);
-    // Voeg meer eigenschappen toe zoals nodig
-    console.log('');
+    console.log(`-${pokemon.name} (${pokemon.id})`);
+    console.log(`-Description: ${pokemon.description}`);
+    console.log(`-HP: ${pokemon.hp}`);
+    console.log(`-Active: ${pokemon.isActive}`);
+    console.log(`-Release Date: ${pokemon.releaseDate}`);
+    console.log(`-Image URL: ${pokemon.imageUrl}`);
+    console.log(`-Rarity: ${pokemon.rarity}`);
+    console.log(`-Types: ${pokemon.types.join(', ')}`);
+    console.log(`-Weakness: ${pokemon.weakness}`);
+    console.log(`-Resistance: ${pokemon.resistance}`);
+    console.log(`-Evolves From: ${pokemon.evolvesFrom ? pokemon.evolvesFrom : 'None'}`);
+    console.log(`-Evolves To: ${pokemon.evolvesTo ? pokemon.evolvesTo : 'None'}\n`);
   });
-}
 
-// Functie om data te filteren op ID
+}
 function filterByID(data: Pokemon[], id: number): void {
   const filteredPokemon = data.find((pokemon: Pokemon) => pokemon.id === id);
   if (filteredPokemon) {
     console.log(`- ${filteredPokemon.name} (${filteredPokemon.id})`);
-    console.log(`  - Description: ${filteredPokemon.description}`);
-    console.log(`  - HP: ${filteredPokemon.hp}`);
-    console.log(`  - Active: ${filteredPokemon.isActive}`);
-    // Voeg meer eigenschappen toe zoals nodig
+    console.log(`-Description: ${filteredPokemon.description}`);
+    console.log(`-HP: ${filteredPokemon.hp}`);
+    console.log(`-Active: ${filteredPokemon.isActive}`);
+    console.log(`-Release Date: ${filteredPokemon.releaseDate}`);
+    console.log(`-Image URL: ${filteredPokemon.imageUrl}`);
+    console.log(`-Rarity: ${filteredPokemon.rarity}`);
+    console.log(`-Types: ${filteredPokemon.types.join(', ')}`);
+    console.log(`-Weakness: ${filteredPokemon.weakness}`);
+    console.log(`-Resistance: ${filteredPokemon.resistance}`);
+    console.log(`-Evolves From: ${filteredPokemon.evolvesFrom ? filteredPokemon.evolvesFrom :'None'}`);
+    console.log(`-Evolves To: ${filteredPokemon.evolvesTo ? filteredPokemon.evolvesTo :'None'}\n`);
+   
   } else {
     console.log('Pokemon with the provided ID was not found.');
   }
 }
-
-// Hoofdfunctie
 function main(): void {
   const data: Pokemon[] = readJSONFile('pokemon.json');
 
