@@ -2,9 +2,9 @@ import * as fs from 'fs';
 import { Pokemon } from './interface'; 
 import readlineSync from 'readline-sync'
 
-function readJSONFile(filename: string): any {
-  const rawData = fs.readFileSync(filename);
-  return JSON.parse(rawData.toString());
+async function readJSONFile(filename: string): Promise<any> {
+  const rawData = await fetch(`https://raw.githubusercontent.com/LarsVerheyden/Terminal-App/main/Pokemon%20API/${filename}.json`);
+  return rawData.json()
 }
 function displayData(data: Pokemon[]): void {
   console.log('- All Pokemon Data -');
@@ -44,23 +44,24 @@ function filterByID(data: Pokemon[], id: number): void {
     console.log('Pokemon with the provided ID was not found.');
   }
 }
-function main(): void {
-  const data: Pokemon[] = readJSONFile('pokemon.json');
+async function main(): Promise<void> {
+  const pokemon: Pokemon[] = await readJSONFile('pokemon');
+  const attacks: Pokemon[] = await readJSONFile('attacks');
 
   console.log('Welcome to the JSON data viewer!');
-  console.log('1. View all data');
-  console.log('2. Filter by ID');
-  console.log('3. Exit');
+  console.log('1.View all data');
+  console.log('2.Filter by ID');
+  console.log('3.Exit');
 
   const choice = readlineSync.question('Please enter your choice: ');
 
   switch (choice) {
     case '1':
-      displayData(data);
+      displayData(pokemon);
       break;
     case '2':
       const id = readlineSync.question('Please enter the ID you want to filter by: ');
-      filterByID(data, parseInt(id));
+      filterByID(pokemon, parseInt(id));
       break;
     case '3':
       console.log('Exiting...');
