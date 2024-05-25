@@ -1,0 +1,12 @@
+<tr>
+  <td>
+    <a href="/pokemons/<%= pokemon.name %>"> <%= pokemon.name %> </a>
+    <!-- img toeveogen hier -->
+  </td>
+
+  <td><%= pokemon.description %></td>
+  <td>
+    <%= pokemon.attacks.reduce((accumilator, current) =>
+    `${accumilator}${accumilator ? ', ' : ''}${current.name}`, "") %>
+  </td>
+</tr>
