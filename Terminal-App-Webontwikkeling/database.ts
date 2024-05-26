@@ -1,6 +1,6 @@
 import dotenv from "dotenv";
 import { MongoClient } from "mongodb";
-import { Pokemon } from "./interface";
+import { Pokemon, Attack } from "./interface";
 
 dotenv.config();
 
@@ -14,6 +14,19 @@ export async function fetchPokemons(): Promise<Pokemon[]> {
     console.log("Connected to the database");
 
     return (await Pokémons?.find().toArray()) ?? [];
+  } finally {
+    await client.close();
+    console.log("Connection closed");
+  }
+}
+export async function fetchAttacks(): Promise<Attack[]> {
+  try {
+    await client.connect();
+    const database = client.db("Pokemon-API");
+    const Attacks = database.collection<Attack>("Attacks");
+    console.log("Connected to the database");
+
+    return (await Attacks?.find().toArray()) ?? [];
   } finally {
     await client.close();
     console.log("Connection closed");

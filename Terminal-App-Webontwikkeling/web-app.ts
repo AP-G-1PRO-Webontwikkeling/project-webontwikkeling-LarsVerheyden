@@ -1,11 +1,12 @@
 import ejs from "ejs";
 import express from "express";
-import { fetchPokemons } from "./database";
+import { fetchAttacks, fetchPokemons } from "./database";
 
 const app = express();
 
 async function main() {
   const pokemons = await fetchPokemons();
+  const attacks = await fetchAttacks();
 
   app.set("view engine", "ejs");
   app.set("port", 3000);
@@ -28,6 +29,11 @@ async function main() {
     } else {
       res.status(404).send("Pokémon not found");
     }
+  });
+
+  app.get("/pokemonAttacks", (req, res) => {
+    console.log(attacks);
+    res.render("partials/pokemonAttacks", { attacks: attacks });
   });
 
   app.listen(app.get("port"), () => {
