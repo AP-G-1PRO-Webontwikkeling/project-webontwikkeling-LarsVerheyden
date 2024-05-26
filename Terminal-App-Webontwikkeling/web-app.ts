@@ -20,6 +20,16 @@ async function main() {
     res.render("pokemons", { pokemons });
   });
 
+  app.get("/pokemons/:name", (req, res) => {
+    const pokemonName = req.params.name.toLowerCase();
+    const pokemon = pokemons.find((p) => p.name.toLowerCase() === pokemonName);
+    if (pokemon) {
+      res.render("pokemonDetail", { pokemon });
+    } else {
+      res.status(404).send("Pokémon not found");
+    }
+  });
+
   app.listen(app.get("port"), () => {
     console.log(`server running on http://localhost:${app.get("port")}`);
   });

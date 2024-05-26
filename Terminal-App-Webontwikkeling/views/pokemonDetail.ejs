@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+  <%- include("partials/head", { title: pokemon.name }) %>
+  <link rel="stylesheet" href="/css/detailPage.css" />
+  <body>
+    <main>
+      <h2><%= pokemon.name %></h2>
+      <img
+        src="<%= pokemon.imageUrl %>"
+        alt="<%= pokemon.name %> Image"
+        class="pokemon-detail-image"
+      />
+      <p><strong>Type:</strong> <%= pokemon.types.join(', ') %></p>
+      <p><strong>Weakness:</strong> <%= pokemon.weakness %></p>
+      <p><strong>Description:</strong> <%= pokemon.description %></p>
+      <p><strong>HP:</strong> <%= pokemon.hp %></p>
+      <p><strong>Rarity:</strong> <%= pokemon.rarity %></p>
+      <p><strong>Resistance:</strong> <%= pokemon.resistance %></p>
+      <p><strong>Attacks:</strong></p>
+      <ul>
+        <% pokemon.attacks.forEach(function(attack) { %>
+        <div class="attack">
+          <strong><%= attack.name %></strong> - <%= attack.description %>
+          <div class="damage">Damage: <%= attack.damage %></div>
+        </div>
+        <% }); %>
+      </ul>
+    </main>
+    <div class="back-link">
+      <a href="/pokemons">Back to Pokemon list</a>
+    </div>
+  </body>
+</html>

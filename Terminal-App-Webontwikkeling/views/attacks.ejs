@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+  <%- include("partials/head", {title: "Pokémons"}) %>
+  <link rel="stylesheet" href="css/pokemons.css" />
+  <body>
+    <table>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+        <th>Power</th>
+        <th>Accuracy</th>
+      </tr>
+      <% for (const pokemon of pokemons){ %> <%-
+      include('partials/pokemonAttacks.ejs', { attacks }); %> <% } %>
+    </table>
+  </body>
+</html>

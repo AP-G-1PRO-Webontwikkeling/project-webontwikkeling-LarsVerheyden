@@ -1,16 +1,97 @@
 <!DOCTYPE html>
 <html lang="en">
   <%- include("partials/head", {title: "Pokémons"}) %>
+  <link rel="stylesheet" href="css/pokemons.css" />
   <body>
-    <h3>Table Example</h3>
-    <table>
-      <tr>
-        <th>Naam</th>
-        <th>Omschrijving</th>
-        <th>Aanvallen</th>
-      </tr>
-      <% for (const pokemon of pokemons){ %> <%- include('partials/objects.ejs',
-      { pokemon }); %> <% } %>
+    <div>
+      <label for="pokemon-search">Filter by name:</label>
+      <input
+        type="text"
+        id="pokemon-search"
+        placeholder="Enter Pokemon name..."
+      />
+    </div>
+
+    <table id="pokemon-table">
+      <thead>
+        <tr>
+          <th>Image</th>
+          <th><button class="sort-btn" data-sort="name">Name</button></th>
+          <th><button class="sort-btn" data-sort="type">Type</button></th>
+          <th>
+            <button class="sort-btn" data-sort="weakness">Weakness</button>
+          </th>
+          <th>Description</th>
+          <th>Attacks</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% for (const pokemon of pokemons) { %> <%- include('partials/objects',
+        { pokemon }); %> <% } %>
+      </tbody>
     </table>
+
+    <script>
+      // zoekbalk
+      document
+        .getElementById("pokemon-search")
+        .addEventListener("input", function () {
+          const filter = this.value.toLowerCase();
+          const rows = document.querySelectorAll("#pokemon-table tbody tr");
+
+          rows.forEach((row) => {
+            const name = row
+              .querySelector("td:nth-child(2) a")
+              .textContent.toLowerCase();
+            if (name.includes(filter)) {
+              row.style.display = "";
+            } else {
+              row.style.display = "none";
+            }
+          });
+        });
+
+      // sorteerknoppen
+      document.querySelectorAll(".sort-btn").forEach((button) => {
+        button.addEventListener("click", function () {
+          const table = document.getElementById("pokemon-table");
+          const tbody = table.querySelector("tbody");
+          const rows = Array.from(tbody.querySelectorAll("tr"));
+          const sortField = this.getAttribute("data-sort");
+          const order = (this.dataset.order = -(this.dataset.order || -1));
+
+          rows.sort((a, b) => {
+            const aText = a
+              .querySelector(`td:nth-child(${getFieldIndex(sortField)})`)
+              .textContent.trim()
+              .toLowerCase();
+            const bText = b
+              .querySelector(`td:nth-child(${getFieldIndex(sortField)})`)
+              .textContent.trim()
+              .toLowerCase();
+
+            if (aText < bText) return -1 * order;
+            if (aText > bText) return 1 * order;
+            return 0;
+          });
+
+          // rijen enz.
+          rows.forEach((row) => tbody.appendChild(row));
+        });
+      });
+
+      function getFieldIndex(field) {
+        switch (field) {
+          case "name":
+            return 2;
+          case "type":
+            return 3;
+          case "weakness":
+            return 4;
+          default:
+            return 1;
+        }
+      }
+    </script>
   </body>
 </html>

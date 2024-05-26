@@ -1,45 +1,38 @@
 <!DOCTYPE html>
 <html lang="en">
   <%- include("partials/head", {title: "Pokémon-API"}) %>
+  <link rel="stylesheet" href="css/home.css" />
   <body>
-    <div class="container">
-      <h1>Welcome to the Basic CSS Example</h1>
-      <p>
-        This is a paragraph of text to demonstrate the basic CSS styling. You
-        can add more content here to see how the styling applies.
-      </p>
-
-      <h2>Subheading</h2>
-      <p>Another paragraph under a subheading.</p>
-
-      <h3>List Example</h3>
-      <ul>
-        <li>List item one</li>
-        <li>List item two</li>
-        <li>List item three</li>
-      </ul>
-
-      <h3>Table Example</h3>
-      <table>
-        <tr>
-          <th>Header 1</th>
-          <th>Header 2</th>
-          <th>Header 3</th>
-        </tr>
-        <tr>
-          <td>Data 1</td>
-          <td>Data 2</td>
-          <td>Data 3</td>
-        </tr>
-        <tr>
-          <td>Data 4</td>
-          <td>Data 5</td>
-          <td>Data 6</td>
-        </tr>
-      </table>
-
-      <h3>Link Example</h3>
-      <p>Here is an example of a <a href="#">link</a>.</p>
-    </div>
+    <main>
+      <section class="intro">
+        <h2>Welcome to the Pokémon API</h2>
+        <p>
+          Discover information about your favorite Pokémon and their attacks.
+        </p>
+      </section>
+      <section class="links">
+        <div class="pokemon-link">
+          <img
+            src="https://raw.githubusercontent.com/LarsVerheyden/Terminal-App/main/Pokemon-general%20image.jpg"
+            alt="Pokémon Image"
+          />
+          <h3>Pokémons</h3>
+          <p>View details of all Pokémons.</p>
+          <a href="/pokemons" class="button">View Pokémons</a>
+        </div>
+        <div class="attack-link">
+          <img
+            src="https://raw.githubusercontent.com/LarsVerheyden/Terminal-App/main/pokemon%20attack.jpg"
+            alt="Attack Image"
+          />
+          <h3>Attacks</h3>
+          <p>Discover the different attacks that Pokémons can learn.</p>
+          <a href="attacks.html" class="button">View Attacks</a>
+        </div>
+      </section>
+    </main>
+    <footer>
+      <p>&copy; 2024 Pokémon-API. All rights reserved.</p>
+    </footer>
   </body>
 </html>

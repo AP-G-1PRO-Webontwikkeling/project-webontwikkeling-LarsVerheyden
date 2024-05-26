@@ -1,0 +1,122 @@
+/* header */
+header {
+  background-color: #007bff;
+  color: white;
+  padding: 20px 0;
+  text-align: center;
+}
+
+header h1 {
+  margin: 0;
+}
+
+nav ul {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  gap: 60px;
+}
+
+nav a {
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+}
+main {
+  padding: 20px;
+  text-align: center;
+}
+
+.intro {
+  margin-bottom: 40px;
+}
+.links {
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+}
+
+.pokemon-link,
+.attack-link {
+  text-align: center;
+  max-width: 200px;
+}
+
+.pokemon-link img,
+.attack-link img {
+  width: 100%;
+  height: auto;
+  border-radius: 5px;
+}
+
+.pokemon-link h3,
+.attack-link h3 {
+  margin-top: 10px;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f4f4f9;
+  margin: 0;
+  padding: 20px;
+  color: #333;
+}
+
+h2 {
+  color: #333;
+  margin-top: 0;
+  text-align: center;
+}
+
+.pokemon-detail {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.pokemon-detail-image {
+  width: 200px;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 5px;
+  margin-bottom: 20px;
+}
+
+.detail-table {
+  width: 80%;
+  margin: 0 auto;
+  border-collapse: collapse;
+}
+
+.detail-table th,
+.detail-table td {
+  border: 1px solid #ddd;
+  padding: 10px;
+}
+
+.detail-table th {
+  background-color: #e4de6e;
+}
+
+.detail-table td {
+  text-align: left;
+}
+
+.detail-description {
+  text-align: justify;
+}
+
+.back-link {
+  margin-top: 20px;
+}
+
+.back-link a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+.back-link a:hover {
+  text-decoration: underline;
+}

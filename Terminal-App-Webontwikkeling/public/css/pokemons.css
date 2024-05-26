@@ -1,0 +1,111 @@
+/* header */
+header {
+  background-color: #007bff;
+  color: white;
+  padding: 20px 0;
+  text-align: center;
+}
+
+header h1 {
+  margin: 0;
+}
+
+nav ul {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  gap: 60px;
+}
+
+nav a {
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+}
+main {
+  padding: 20px;
+  text-align: center;
+}
+
+.intro {
+  margin-bottom: 40px;
+}
+.links {
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+}
+
+.pokemon-link,
+.attack-link {
+  text-align: center;
+  max-width: 200px;
+}
+
+.pokemon-link img,
+.attack-link img {
+  width: 100%;
+  height: auto;
+  border-radius: 5px;
+}
+
+.pokemon-link h3,
+.attack-link h3 {
+  margin-top: 10px;
+}
+
+/* tabel */
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f4f4f9;
+  margin: 0;
+  padding: 20px;
+  color: #333;
+}
+
+h3 {
+  color: #333;
+  margin-top: 0;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 0px 0;
+}
+
+table,
+th,
+td {
+  border: 1px solid #ddd;
+}
+
+th,
+td {
+  padding: 10px;
+  text-align: left;
+}
+
+th {
+  background-color: #e4de6e;
+}
+
+.pokemon-image {
+  width: 50px;
+  height: 50px;
+  object-fit: cover;
+}
+
+tr:hover {
+  background-color: #e0e0e0;
+}
+
+a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}

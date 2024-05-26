@@ -16,6 +16,6 @@ export async function fetchPokemons(): Promise<Pokemon[]> {
     return (await Pokémons?.find().toArray()) ?? [];
   } finally {
     await client.close();
-    console.log("connection closed");
+    console.log("Connection closed");
   }
 }
